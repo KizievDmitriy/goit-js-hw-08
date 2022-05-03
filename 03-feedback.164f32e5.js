@@ -4,4 +4,4 @@ var t=arguments[3],n="Expected a function",e=NaN,i="[object Symbol]",r=/^\s+|\s+
 },{}],"TTyb":[function(require,module,exports) {
 "use strict";var e=t(require("lodash.throttle"));function t(e){return e&&e.__esModule?e:{default:e}}const a=document.querySelector(".feedback-form"),r=document.querySelector('[name="email"]'),o=document.querySelector('[name="message"]');function l(e){!localStorage.setItem("feedback-form-state",JSON.stringify({email:r.value,message:o.value}))||JSON.parse(localStorage.getItem("feedback-form-state"))}function n(e){e.preventDefault(),new FormData(a).forEach((e,t)=>console.log(e,t)),localStorage.removeItem("feedback-form-state"),e.currentTarget.reset()}function c(){let e=localStorage.getItem("feedback-form-state");e&&(e=JSON.parse(e),Object.entries(e).forEach(e=>{let[t,r]=e;a.elements[t].value=r}))}c(),a.addEventListener("input",(0,e.default)(l,500)),a.addEventListener("submit",n);
 },{"lodash.throttle":"FNyO"}]},{},["TTyb"], null)
-//# sourceMappingURL=/goit-js-hw-08/03-feedback.fa6b0a7e.js.map
+//# sourceMappingURL=/goit-js-hw-08/03-feedback.164f32e5.js.map
