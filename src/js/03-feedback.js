@@ -14,4 +14,26 @@ function onInputHandler(e) {
     JSON.stringify({ email: inputRef.value, message: textAreaRef.value }),
   );
   currentLocalStorage ? JSON.parse(localStorage.getItem('feedback-form-state')) : {};
-}
+};
+
+formRef.addEventListener('submit', onSubmitHandler);
+
+function onSubmitHandler(e) {
+  e.preventDefault();
+  
+  const formData = new FormData(formRef);
+  formData.forEach((value, name) => console.log(value, name));
+
+  localStorage.removeItem('feedback-form-state');
+  e.currentTarget.reset();
+};
+
+function onResetPage() {
+  let currentLocalStorage = localStorage.getItem('feedback-form-state');
+  if (currentLocalStorage) {
+    currentLocalStorage = JSON.parse(currentLocalStorage);
+    Object.entries(currentLocalStorage).forEach(([name, value]) => {
+      formRef.elements[name].value = value;
+    });
+  }
+};
